@@ -25,12 +25,12 @@ public class Moving : BaseState
         if (Mathf.Abs(_horizontalInput) < Mathf.Epsilon)
             stateMachine.ChangeState(_sm.idleState);
 
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if(Input.GetKeyDown(KeyCode.LeftShift) && _sm.isDashAcquired)
         {
             stateMachine.ChangeState(_sm.dashingState);
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && _sm.isGrappleAcquired)
             stateMachine.ChangeState(_sm.grappleState);
 
         if (Input.GetKeyDown(KeyCode.Mouse2))

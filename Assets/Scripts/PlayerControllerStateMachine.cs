@@ -37,8 +37,11 @@ public class PlayerControllerStateMachine : StateMachine
 
     public bool isFacingRight = true;
 
+    public GameObject acquireEffect;
     
     public List<AbilityData> abilitySet = new List<AbilityData>();
+
+    public bool isGrappleAcquired, isDashAcquired, isKunaiAcquired;
 
     private void Awake()
     {
@@ -75,5 +78,18 @@ public class PlayerControllerStateMachine : StateMachine
             isGrounded = false;
             Debug.Log("isGrounded : " + isGrounded);
         }
+    }
+
+    public void AcquireEffect()
+    {
+        GameObject acquiredEffect = GameObject.Instantiate(acquireEffect, this.gameObject.transform.position - new Vector3(0, 1.2f, 0), Quaternion.identity, this.transform);
+        StartCoroutine(StartAcquireEffect(acquiredEffect));
+    }
+
+    IEnumerator StartAcquireEffect(GameObject acquiredEffect)
+    {
+        yield return new WaitForSeconds(3f);
+
+        Destroy(acquiredEffect);
     }
 }

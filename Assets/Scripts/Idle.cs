@@ -33,10 +33,10 @@ public class Idle : BaseState
             stateMachine.ChangeState(_sm.jumpingState);
 
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && _sm.isGrappleAcquired)
             stateMachine.ChangeState(_sm.grappleState);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && _sm.isKunaiAcquired)
         {
             stateMachine.ChangeState(_sm.attackState);
         }

@@ -12,19 +12,26 @@ public class Grapple : MonoBehaviour
 
     public TrailRenderer tr;
 
+    PlayerControllerStateMachine _sm;
+
     // Start is called before the first frame update
     void Start()
     {
         audioManager = GameObject.FindObjectOfType<AudioManager>();
+        _sm = GameObject.FindObjectOfType<PlayerControllerStateMachine>();
+
         _distanceJoint.enabled = false;
 
         tr.sortingLayerName = "Player";
+        _lineRenderer.sortingLayerName = "Player";
+        _lineRenderer.sortingOrder = 10;
+        _lineRenderer.positionCount = 2;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && _sm.isGrappleAcquired)
         {
             //audioManager.grappleAudio.Play();
             Vector2 mousePos = (Vector2)mainCamera.ScreenToWorldPoint(Input.mousePosition);
@@ -35,7 +42,7 @@ public class Grapple : MonoBehaviour
             _lineRenderer.enabled = true;
         }
        
-        else if (Input.GetKeyUp(KeyCode.Mouse0))
+        else if (Input.GetKeyUp(KeyCode.Mouse0) && _sm.isGrappleAcquired)
         {
             _distanceJoint.enabled = false;
             _lineRenderer.enabled = false;
@@ -46,7 +53,7 @@ public class Grapple : MonoBehaviour
         }
 
         //Testing out to change web length at real time
-        if (Input.GetKey(KeyCode.Mouse1))
+        if (Input.GetKey(KeyCode.Mouse1) && _sm.isGrappleAcquired)
         {
             _lineRenderer.SetPosition(1, new Vector3(transform.position.x, transform.position.y + 4, transform.position.z));
         }
