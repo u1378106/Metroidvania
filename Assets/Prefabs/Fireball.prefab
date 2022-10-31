@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1704391316635534416}
   - component: {fileID: 123757072663495594}
   - component: {fileID: 6678367394342091266}
+  - component: {fileID: -218392825091973202}
   m_Layer: 0
   m_Name: Fireball
   m_TagString: Fire
@@ -123,3 +124,16 @@ CapsuleCollider2D:
   m_Offset: {x: -0.00000011920929, y: -0.40021074}
   m_Size: {x: 1, y: 1.5}
   m_Direction: 0
+--- !u!114 &-218392825091973202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704391316635534417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95bd4500cafcfbf4fbcf4d00b8af7ced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverScreen: {fileID: 344658849021249686, guid: c6bf787558c63fa4a9c9626124b0e381, type: 3}

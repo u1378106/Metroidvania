@@ -9,6 +9,8 @@ TagManager:
   - DeathTrap
   - Zombie
   - Kunai
+  - Enemy
+  - Ground
   layers:
   - Default
   - TransparentFX

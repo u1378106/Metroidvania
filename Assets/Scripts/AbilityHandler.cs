@@ -10,23 +10,23 @@ public class AbilityHandler : MonoBehaviour
         if (other.gameObject.tag.Equals("Player"))
         {
             if (this.gameObject.name.Equals("KunaiAbility"))
-            {
-                other.gameObject.GetComponent<PlayerControllerStateMachine>().isKunaiAcquired = true;
+            {               
                 other.gameObject.GetComponent<PlayerControllerStateMachine>().abilitySet.Add(Resources.Load("Data/Kunai") as AbilityData);
+                other.gameObject.GetComponent<PlayerControllerStateMachine>().isKunaiAcquired = true;
             }
 
-            if (this.gameObject.name.Equals("GrappleHookAbility"))
+            else if (this.gameObject.name.Equals("GrappleHookAbility"))
             {
-                other.gameObject.GetComponent<PlayerControllerStateMachine>().isGrappleAcquired = true;
                 other.gameObject.GetComponent<PlayerControllerStateMachine>().abilitySet.Add(Resources.Load("Data/Grapple") as AbilityData);
+                other.gameObject.GetComponent<PlayerControllerStateMachine>().isGrappleAcquired = true;
             }
 
-            if (this.gameObject.name.Equals("DashAbility"))
+            else if (this.gameObject.name.Equals("DashAbility"))
             {
-                other.gameObject.GetComponent<PlayerControllerStateMachine>().isDashAcquired = true;
                 other.gameObject.GetComponent<PlayerControllerStateMachine>().abilitySet.Add(Resources.Load("Data/Dash") as AbilityData);
+                other.gameObject.GetComponent<PlayerControllerStateMachine>().isDashAcquired = true;
             }
-
+            AudioManager.instance.Play("Acquire");
             other.gameObject.GetComponent<PlayerControllerStateMachine>().AcquireEffect();
             Destroy(this.gameObject);
         }

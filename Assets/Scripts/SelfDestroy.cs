@@ -5,6 +5,7 @@ using UnityEngine;
 public class SelfDestroy : MonoBehaviour
 {
     AudioManager audioManager;
+    public GameObject gameOverScreen;
 
     private void Start()
     {
@@ -15,12 +16,13 @@ public class SelfDestroy : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            if (this.gameObject.name == "Ring")
-                //audioManager.collectAudio.Play();
-           // else if(this.gameObject.name == "Enemy")
-                //audioManager.destroyAudio.Play();
 
-            Destroy(this.gameObject);
+            //audioManager.collectAudio.Play();
+            // else if(this.gameObject.name == "Enemy")
+            //audioManager.destroyAudio.Play();
+
+           GameObject.Instantiate(gameOverScreen);
+            Destroy(other.gameObject);
         }
         
     }

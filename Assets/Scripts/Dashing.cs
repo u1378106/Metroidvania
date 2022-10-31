@@ -7,7 +7,7 @@ public class Dashing : BaseState
 {
     private PlayerControllerStateMachine _sm;
 
-    private float dashingPower = 60f;
+    private float dashingPower = 120f;
 
     bool isDashing = false;
 

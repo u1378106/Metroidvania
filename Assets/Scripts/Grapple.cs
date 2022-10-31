@@ -33,7 +33,7 @@ public class Grapple : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && _sm.isGrappleAcquired)
         {
-            //audioManager.grappleAudio.Play();
+            AudioManager.instance.Play("Grapple");
             Vector2 mousePos = (Vector2)mainCamera.ScreenToWorldPoint(Input.mousePosition);
             _lineRenderer.SetPosition(0, mousePos);
             _lineRenderer.SetPosition(1, transform.position);
@@ -53,8 +53,9 @@ public class Grapple : MonoBehaviour
         }
 
         //Testing out to change web length at real time
-        if (Input.GetKey(KeyCode.Mouse1) && _sm.isGrappleAcquired)
+        if (Input.GetKeyDown(KeyCode.Mouse1) && _sm.isGrappleAcquired)
         {
+            AudioManager.instance.Play("GrappleRelease");
             _lineRenderer.SetPosition(1, new Vector3(transform.position.x, transform.position.y + 4, transform.position.z));
         }
     }

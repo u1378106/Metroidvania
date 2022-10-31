@@ -30,8 +30,9 @@ public class Jumping : BaseState
     {
         base.UpdatePhysics();
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && _sm.isGrounded)
         {
+            AudioManager.instance.Play("Jump");
             _sm.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 500);
         }
 

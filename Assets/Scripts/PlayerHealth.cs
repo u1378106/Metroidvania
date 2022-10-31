@@ -19,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
         if (!isAttacking)
         {
             isAttacking = true;
+            AudioManager.instance.Play("ZombieScream");
             yield return new WaitForSeconds(1f);
 
             if (heart1.fillAmount != 0)

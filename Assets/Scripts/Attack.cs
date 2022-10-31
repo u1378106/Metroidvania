@@ -30,14 +30,14 @@ public class Attack : BaseState
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            AudioManager.instance.Play("Shoot");
             GameObject projectile = GameObject.Instantiate(_sm.abilitySet[0].ability, _sm.transform.position + new Vector3(2, 0, 0), Quaternion.Euler(0, 0, -90));
-            //GameObject trail = Instantiate(abilityData.weaponTrailEffect, projectile.transform);
             projectile.GetComponent<Rigidbody2D>().AddForce(_sm.transform.right * 1000);
             _sm.playerAnim.SetBool("isAttacking", true);
         }
         else if (Input.GetKeyUp(KeyCode.Space))
         {
-            _sm.playerAnim.SetBool("isAttacking", false);
+            _sm.playerAnim.SetBool("isAttacking", false);         
         }
     }
 }

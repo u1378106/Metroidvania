@@ -51,6 +51,7 @@ public class Zombie : MonoBehaviour
         }
         else
         {
+            AudioManager.instance.Play("Damage");
             GameObject destroyEffect = GameObject.Instantiate(_sm.abilitySet[0].destroyEffect, transform.position, Quaternion.identity);
             animator.SetTrigger("death");
             GetComponent<CapsuleCollider2D>().enabled = false;

@@ -63,7 +63,7 @@ public class PlayerControllerStateMachine : StateMachine
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.tag == "ground")
+        if (other.gameObject.tag == "Ground")
         {
             isGrounded = true;
             Debug.Log("isGrounded : " + isGrounded);
@@ -73,7 +73,7 @@ public class PlayerControllerStateMachine : StateMachine
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.tag == "ground")
+        if (other.gameObject.tag == "Ground")
         {
             isGrounded = false;
             Debug.Log("isGrounded : " + isGrounded);

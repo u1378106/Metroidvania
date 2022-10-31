@@ -35,7 +35,7 @@ public class Grappling : BaseState
             isGrapple = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             isGrapple = false;
             Debug.Log("grapple leave state");

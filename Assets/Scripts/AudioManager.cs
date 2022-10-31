@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -10,19 +10,21 @@ public class AudioManager : MonoBehaviour
 
 	void Awake()
 	{
-		if (instance != null)
-		{
-			Destroy(gameObject);
-		}
-		else
-		{
-			instance = this;
-			DontDestroyOnLoad(gameObject);
-		}
+		instance = this;
+		//if (instance != null)
+		//{
+		//	Destroy(gameObject);
+		//}
+		//else
+		//{
+		//	instance = this;
+		//	DontDestroyOnLoad(gameObject);
+		//}
 
 		foreach (Sound s in sounds)
 		{
 			s.source = gameObject.AddComponent<AudioSource>();
+			s.source.playOnAwake = false;
 			s.source.clip = s.clip;
 			s.source.outputAudioMixerGroup = s.mixer;
 			s.source.volume = s.volume;
@@ -31,7 +33,14 @@ public class AudioManager : MonoBehaviour
 		}
 	}
 
-	public void Play(string sound)
+    private void Start()
+    {
+		instance.gameObject.SetActive(false);
+		instance.gameObject.SetActive(true);
+		instance.Play("Bg");
+	}
+
+    public void Play(string sound)
 	{
 		Sound s = Array.Find(sounds, item => item.name == sound);
 		s.source.Play();

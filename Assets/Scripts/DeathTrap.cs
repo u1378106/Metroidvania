@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class DeathTrap : MonoBehaviour
 {
+    public GameObject gameOverScreen;
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("collided!");
-        if(other.gameObject.tag == "Player" || other.gameObject.tag == "Fire")
+        
+        if(other.gameObject.tag == "Player" )
+        {
+            gameOverScreen.SetActive(true);
+            Destroy(other.gameObject);
+        }
+        else if(other.gameObject.tag == "Fire")
         {
             Destroy(other.gameObject);
         }
