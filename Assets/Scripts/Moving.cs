@@ -6,6 +6,7 @@ public class Moving : BaseState
 {
     private PlayerControllerStateMachine _sm;
     private float _horizontalInput;
+    private float _verticalInput;
 
     public Moving(PlayerControllerStateMachine stateMachine) : base("Moving", stateMachine)
     {
@@ -16,6 +17,7 @@ public class Moving : BaseState
     {
         base.Enter();
         _horizontalInput = 0f;
+        _verticalInput = 0f;
     }
 
     public override void UpdateLogic()
@@ -25,7 +27,11 @@ public class Moving : BaseState
         if (Mathf.Abs(_horizontalInput) < Mathf.Epsilon)
             stateMachine.ChangeState(_sm.idleState);
 
-        if(Input.GetKeyDown(KeyCode.LeftShift) && _sm.isDashAcquired)
+        _verticalInput = Input.GetAxis("Vertical");
+        if (Mathf.Abs(_verticalInput) > Mathf.Epsilon)
+            stateMachine.ChangeState(_sm.jumpingState);
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && _sm.isDashAcquired)
         {
             stateMachine.ChangeState(_sm.dashingState);
         }
@@ -33,9 +39,14 @@ public class Moving : BaseState
         if (Input.GetKeyDown(KeyCode.Mouse0) && _sm.isGrappleAcquired)
             stateMachine.ChangeState(_sm.grappleState);
 
-        if (Input.GetKeyDown(KeyCode.Mouse2))
+        if (Input.GetKeyDown(KeyCode.Mouse2) && _sm.isPoundAcquired && !_sm.isGrounded)
         {
             stateMachine.ChangeState(_sm.groundPoundState);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && _sm.isKunaiAcquired)
+        {
+            stateMachine.ChangeState(_sm.attackState);
         }
     }
 

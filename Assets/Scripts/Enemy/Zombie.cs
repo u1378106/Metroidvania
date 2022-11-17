@@ -23,21 +23,24 @@ public class Zombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(target.position.x > transform.position.x)
-            transform.localScale = new Vector2(0.45f, 0.45f);
-        else
-            transform.localScale = new Vector2(-0.45f, 0.45f);
+        if (target != null)
+        {
+            if (target.position.x > transform.position.x)
+                transform.localScale = new Vector2(0.45f, 0.45f);
+            else
+                transform.localScale = new Vector2(-0.45f, 0.45f);
+        }
 
     }
 
     private void OnCollisionEnter2D(Collision2D other)
-    {
+    {      
         if (other.gameObject.tag == "Kunai")
         {
             GameObject damageEffect = GameObject.Instantiate(_sm.abilitySet[0].damageEffect, transform.position, Quaternion.identity);
             Destroy(other.gameObject);
             TakeDamage(10);
-        }
+        }     
     }
 
     public void TakeDamage(int damageAmount)
@@ -45,7 +48,7 @@ public class Zombie : MonoBehaviour
         enemyHP -= damageAmount;
         enemyHealthBar.value = enemyHP;
         if (enemyHP > 0)
-        {
+          {
             animator.SetTrigger("damage");
 	    animator.SetBool("isChasing", true);
         }

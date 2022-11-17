@@ -16,11 +16,6 @@ public class SelfDestroy : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-
-            //audioManager.collectAudio.Play();
-            // else if(this.gameObject.name == "Enemy")
-            //audioManager.destroyAudio.Play();
-
            GameObject.Instantiate(gameOverScreen);
             Destroy(other.gameObject);
         }

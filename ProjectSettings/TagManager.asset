@@ -11,6 +11,7 @@ TagManager:
   - Kunai
   - Enemy
   - Ground
+  - GrapplePoint
   layers:
   - Default
   - TransparentFX

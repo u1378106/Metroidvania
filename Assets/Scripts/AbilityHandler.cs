@@ -26,6 +26,11 @@ public class AbilityHandler : MonoBehaviour
                 other.gameObject.GetComponent<PlayerControllerStateMachine>().abilitySet.Add(Resources.Load("Data/Dash") as AbilityData);
                 other.gameObject.GetComponent<PlayerControllerStateMachine>().isDashAcquired = true;
             }
+            else if (this.gameObject.name.Equals("GroundPound"))
+            {
+                other.gameObject.GetComponent<PlayerControllerStateMachine>().abilitySet.Add(Resources.Load("Data/Pound") as AbilityData);
+                other.gameObject.GetComponent<PlayerControllerStateMachine>().isPoundAcquired = true;
+            }
             AudioManager.instance.Play("Acquire");
             other.gameObject.GetComponent<PlayerControllerStateMachine>().AcquireEffect();
             Destroy(this.gameObject);

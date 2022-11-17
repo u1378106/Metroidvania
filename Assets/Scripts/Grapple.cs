@@ -28,10 +28,10 @@ public class Grapple : MonoBehaviour
         _lineRenderer.positionCount = 2;
     }
 
-    // Update is called once per frame
+    // Update is called aonce per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && _sm.isGrappleAcquired)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && _sm.isGrappleAcquired && TempClick.isClicked)
         {
             AudioManager.instance.Play("Grapple");
             Vector2 mousePos = (Vector2)mainCamera.ScreenToWorldPoint(Input.mousePosition);
@@ -42,8 +42,9 @@ public class Grapple : MonoBehaviour
             _lineRenderer.enabled = true;
         }
        
-        else if (Input.GetKeyUp(KeyCode.Mouse0) && _sm.isGrappleAcquired)
+        else if (Input.GetKeyUp(KeyCode.Mouse0) && _sm.isGrappleAcquired && TempClick.isClicked)
         {
+            TempClick.isClicked = false;
             _distanceJoint.enabled = false;
             _lineRenderer.enabled = false;
         }

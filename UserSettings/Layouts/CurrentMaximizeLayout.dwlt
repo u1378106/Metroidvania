@@ -186,8 +186,8 @@ MonoBehaviour:
     y: 0
     width: 362
     height: 567
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -224,23 +224,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d638f8ff
-      m_LastClickedID: -509738
-      m_ExpandedIDs: 1a26fbff0241fbff4c78fbff9285fbffee8dfbff168ffbff3c90fbff9ec4fbff9accfbff6ecefbffb260fcffce60fcffea60fcff0661fcff1061fcff0674fcffac75fcff6277fcff387afcff467cfcffdc84fcff0c8bfcff8cf3fcffaef3fcff92f5fcffb8f6fcff70c3feff26fbfffff4ffffff1a6100004061000046610000648401002c870100069b0100a09e0100c2a80100dec7010016e40100b4f10100c8fb0100f0fb010088fc0100
+      m_SelectedIDs: 46140000
+      m_LastClickedID: 0
+      m_ExpandedIDs: da50ffff26fbffff82610000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: CFX3_DarkMagicAura_A
-        m_OriginalName: CFX3_DarkMagicAura_A
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -515120
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 
@@ -269,8 +269,8 @@ MonoBehaviour:
     y: 0
     width: 1104
     height: 567
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 2}
@@ -344,14 +344,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.88936174
+    - e00: 0.72
       e01: 0
       e02: 0
-      e03: -204.55319
+      e03: -21
       e10: 0
-      e11: 0.88936174
+      e11: 0.72
       e12: 0
-      e13: 186.12439
+      e13: 208.3092
       e20: 0
       e21: 0
       e22: 1
@@ -377,9 +377,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: b7148d35163791c469b7067ee1d3cddd, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 0adec73a2ff28d144af93c3e77a2544b, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -7553265670304752384, guid: b7148d35163791c469b7067ee1d3cddd, type: 2}
+  - m_Target: {fileID: 2409749154151045552, guid: 0adec73a2ff28d144af93c3e77a2544b, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -449,7 +449,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_SearchFilter:
-    m_NameFilter: 
+    m_NameFilter: grapp
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -461,22 +461,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Scripts/Enemy
     m_Globs: []
-    m_OriginalText: 
+    m_OriginalText: grapp
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Scripts/Enemy
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Metroidvania
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 44670000
-    m_LastClickedID: 26436
-    m_ExpandedIDs: 00000000ba660000bc660000be660000c0660000c2660000c4660000c6660000c8660000ca660000cc660000ce660000d0660000d26600004a6700004c67000000ca9a3b
+    scrollPos: {x: 0, y: 19}
+    m_SelectedIDs: a46c0000
+    m_LastClickedID: 27812
+    m_ExpandedIDs: 0000000026670000286700002a6700002c6700002e67000030670000326700003467000036670000386700003a6700003c6700003e670000406700004267000044670000466700007e67000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -504,7 +504,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ba660000bc660000be660000c0660000c2660000c4660000c6660000c8660000ca660000cc660000ce660000d0660000d2660000d4660000d6660000d866000000ca9a3b
+    m_ExpandedIDs: 0000000026670000286700002a6700002c6700002e67000030670000326700003467000036670000386700003a6700003c6700003e67000040670000426700004467000046670000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -529,8 +529,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: d638f8ff
-    m_LastClickedInstanceID: -509738
+    m_SelectedInstanceIDs: 46140000
+    m_LastClickedInstanceID: 5190
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000044100100a48100007ca6010000000000
     m_RenameOverlay:
@@ -618,7 +618,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 129882
+  m_LastSelectedObjectID: -1416
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52

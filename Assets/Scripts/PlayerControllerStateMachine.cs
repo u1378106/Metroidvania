@@ -41,7 +41,7 @@ public class PlayerControllerStateMachine : StateMachine
     
     public List<AbilityData> abilitySet = new List<AbilityData>();
 
-    public bool isGrappleAcquired, isDashAcquired, isKunaiAcquired;
+    public bool isGrappleAcquired, isDashAcquired, isKunaiAcquired, isPoundAcquired;
 
     private void Awake()
     {
@@ -63,6 +63,7 @@ public class PlayerControllerStateMachine : StateMachine
 
     private void OnCollisionStay2D(Collision2D other)
     {
+        Debug.Log("current collision stay : " + other.gameObject.name);
         if (other.gameObject.tag == "Ground")
         {
             isGrounded = true;

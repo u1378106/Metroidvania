@@ -41,7 +41,7 @@ public class Idle : BaseState
             stateMachine.ChangeState(_sm.attackState);
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse2))
+        if (Input.GetKeyDown(KeyCode.Mouse2) &&_sm.isPoundAcquired && !_sm.isGrounded)
         {
             stateMachine.ChangeState(_sm.groundPoundState);
         }

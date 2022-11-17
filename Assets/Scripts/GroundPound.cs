@@ -7,7 +7,7 @@ public class GroundPound : BaseState
 {
     private PlayerControllerStateMachine _sm;
 
-    private float dashingPower = 24f;
+    private float dashingPower = 240f;
 
     private bool isGroundPound;
 
