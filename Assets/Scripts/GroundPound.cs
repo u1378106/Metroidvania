@@ -7,7 +7,7 @@ public class GroundPound : BaseState
 {
     private PlayerControllerStateMachine _sm;
 
-    private float dashingPower = 240f;
+    private float dashingPower = 80f;
 
     private bool isGroundPound;
 
@@ -42,7 +42,7 @@ public class GroundPound : BaseState
     
     private void GroundPoundActivate()
     {
-        if (!isGroundPound)
+        if (!isGroundPound && !_sm.isGPCooldown)
         {
             _sm.GetComponent<TrailRenderer>().enabled = true;
 
@@ -56,6 +56,7 @@ public class GroundPound : BaseState
             {
                 Camera.main.GetComponent<CameraShake>().enabled = true;
                 isGroundPound = true;
+                _sm.isGPCooldown = true;
             }
            
         }

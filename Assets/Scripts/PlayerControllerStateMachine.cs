@@ -29,6 +29,8 @@ public class PlayerControllerStateMachine : StateMachine
 
     public float speed = 4f;
 
+    public float gpCooldownTime = 10f;
+
     [HideInInspector]
     public bool isGrounded = false;
 
@@ -42,6 +44,9 @@ public class PlayerControllerStateMachine : StateMachine
     public List<AbilityData> abilitySet = new List<AbilityData>();
 
     public bool isGrappleAcquired, isDashAcquired, isKunaiAcquired, isPoundAcquired;
+
+    [HideInInspector]
+    public bool isGPCooldown = false;
 
     private void Awake()
     {
@@ -93,4 +98,6 @@ public class PlayerControllerStateMachine : StateMachine
 
         Destroy(acquiredEffect);
     }
+
+
 }
