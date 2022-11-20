@@ -7,6 +7,8 @@ public class LevelHandler : MonoBehaviour
 {
     public GameObject gameoverScreen, winScreen;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,11 @@ public class LevelHandler : MonoBehaviour
         }
         else
             AudioManager.instance.Play("Bg");
+    }
+
+    private void Update()
+    {
+        
     }
 
     public void StartLevel(int levelIndex)

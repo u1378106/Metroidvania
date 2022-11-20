@@ -12,15 +12,15 @@ public class VolumeSlider : MonoBehaviour
     private Slider Music, SFX;
     public void Start()
     {
-        if (PlayerPrefs.HasKey("MusicVolume"))
-            Music.value = PlayerPrefs.GetFloat("MusicVolume");
-        if (PlayerPrefs.HasKey("SFXVolume"))
-            SFX.value = PlayerPrefs.GetFloat("SFXVolume");
+        //if (PlayerPrefs.HasKey("MusicVolume"))
+        //    Music.value = PlayerPrefs.GetFloat("MusicVolume");
+        //if (PlayerPrefs.HasKey("SFXVolume"))
+        //    SFX.value = PlayerPrefs.GetFloat("SFXVolume");
     }
     public void AdjustMusicVolume(float sliderValue)
     {
-        audioMixer.SetFloat("MusicVolume", Mathf.Log10(sliderValue) * 20);
-        PlayerPrefs.SetFloat("MusicVolume", sliderValue);
+        AudioManager.instance.sounds[0].source.volume = this.GetComponent<Slider>().value;
+        PlayerPrefs.SetFloat("MusicVolume", this.GetComponent<Slider>().value);
     }
     public void AdjustSFXVolume(float sliderValue)
     {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class TempClick : MonoBehaviour
+public class GrappleDetect : MonoBehaviour
 {
     public static bool isClicked = false;
     void Update()

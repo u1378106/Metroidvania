@@ -33,6 +33,11 @@ public class AudioManager : MonoBehaviour
 		}
 	}
 
+    private void OnEnable()
+    {
+		instance.Play("Bg");
+	}
+
     private void Start()
     {
 		instance.gameObject.SetActive(false);

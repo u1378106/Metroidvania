@@ -23,7 +23,7 @@ public class Grappling : BaseState
     {
         base.UpdateLogic();
         _horizontalInput = Input.GetAxis("Horizontal");
-        if (!isGrapple && TempClick.isClicked)
+        if (!isGrapple && GrappleDetect.isClicked)
         {
             Debug.Log("grapple state");
             Vector2 mousePos = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
