@@ -31,14 +31,13 @@ public class Door : MonoBehaviour
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Q) && isNearDoor)
-        {
-            
-            doorManager.UseKey();
+        {        
             if (doorManager.keyCounter > 0)
             {
                 isNearDoor = false;
                 Destroy(this.gameObject);
             }
+            doorManager.UseKey();
         }
     }
 }

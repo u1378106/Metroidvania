@@ -39,7 +39,7 @@ public class PlayerControllerStateMachine : StateMachine
 
     public bool isFacingRight = true;
 
-    public GameObject acquireEffect;
+    public GameObject acquireEffect, heartAcquireEffect;
     
     public List<AbilityData> abilitySet = new List<AbilityData>();
 
@@ -102,6 +102,19 @@ public class PlayerControllerStateMachine : StateMachine
     }
 
     IEnumerator StartAcquireEffect(GameObject acquiredEffect)
+    {
+        yield return new WaitForSeconds(3f);
+
+        Destroy(acquiredEffect);
+    }
+
+    public void AcquireHeartEffect()
+    {
+        GameObject acquiredEffect = GameObject.Instantiate(heartAcquireEffect, this.gameObject.transform.position - new Vector3(0, 0, 0), Quaternion.identity, this.transform);
+        StartCoroutine(StartHeartAcquireEffect(acquiredEffect));
+    }
+
+    IEnumerator StartHeartAcquireEffect(GameObject acquiredEffect)
     {
         yield return new WaitForSeconds(3f);
 

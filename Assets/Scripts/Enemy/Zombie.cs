@@ -25,10 +25,20 @@ public class Zombie : MonoBehaviour
     {
         if (target != null)
         {
-            if (target.position.x > transform.position.x)
-                transform.localScale = new Vector2(0.45f, 0.45f);
-            else
-                transform.localScale = new Vector2(-0.45f, 0.45f);
+            if (!this.gameObject.name.Equals("BossZombie"))
+            {
+                if (target.position.x > transform.position.x)
+                    transform.localScale = new Vector2(0.45f, 0.45f);
+                else
+                    transform.localScale = new Vector2(-0.45f, 0.45f);
+            }
+            else if (this.gameObject.name.Equals("BossZombie"))
+            {
+                if (target.position.x > transform.position.x)
+                    transform.localScale = new Vector2(1.3f, 1.3f);             
+                else              
+                transform.localScale = new Vector2(-1.3f, 1.3f);
+            }
         }
 
     }
@@ -39,7 +49,10 @@ public class Zombie : MonoBehaviour
         {
             GameObject damageEffect = GameObject.Instantiate(_sm.abilitySet[0].damageEffect, transform.position, Quaternion.identity);
             Destroy(other.gameObject);
-            TakeDamage(20);
+            if (this.gameObject.name.Equals("BossZombie"))
+                TakeDamage(10);
+            else
+                TakeDamage(20);
         }     
     }
 
@@ -54,6 +67,11 @@ public class Zombie : MonoBehaviour
         }
         else
         {
+            if(this.gameObject.name.Equals("BossZombie"))
+            {
+                GameObject.Find("BossManager").GetComponent<Boss>().isBossDead = true;
+                GameObject.Find("BossManager").GetComponent<Boss>().FinalKey();
+            }
             AudioManager.instance.Play("Damage");
             GameObject destroyEffect = GameObject.Instantiate(_sm.abilitySet[0].destroyEffect, transform.position, Quaternion.identity);
             animator.SetTrigger("death");

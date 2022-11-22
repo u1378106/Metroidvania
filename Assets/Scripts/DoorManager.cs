@@ -31,6 +31,7 @@ public class DoorManager : MonoBehaviour
     {
         if (keyCounter == 0)
         {
+            AudioManager.instance.Play("KeyAcquired");
             keyCounter++;
             keyCounterText.text = ": " + keyCounter;
         }
@@ -40,6 +41,7 @@ public class DoorManager : MonoBehaviour
     {
         if (keyCounter > 0)
         {
+            AudioManager.instance.Play("DoorOpen");
             keyCounter--;
             keyCounterText.text = ": " + keyCounter;
         }
@@ -51,6 +53,7 @@ public class DoorManager : MonoBehaviour
 
     IEnumerator KeyRequired()
     {
+        AudioManager.instance.Play("Error");
         keyRequiredText.gameObject.SetActive(true);
         yield return new WaitForSeconds(2f);
         keyRequiredText.gameObject.SetActive(false);

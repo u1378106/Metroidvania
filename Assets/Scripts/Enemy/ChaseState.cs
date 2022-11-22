@@ -17,13 +17,20 @@ public class ChaseState : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Vector2 newPos = new Vector2(target.position.x, animator.transform.position.y);
-        animator.transform.position =  Vector2.MoveTowards(animator.transform.position, newPos, speed * Time.deltaTime);
+        animator.transform.position = Vector2.MoveTowards(animator.transform.position, newPos, speed * Time.deltaTime);
         if (Physics2D.Raycast(borderCheck.position, Vector2.down, 2) == false)
             animator.SetBool("isChasing", false);
 
         float distance = Vector2.Distance(target.position, animator.transform.position);
         if (distance < 1.5f)
             animator.SetBool("isAttacking", true);
+
+        if (animator.gameObject.name.Equals("BossZombie"))
+        {
+            float zombieDistance = Vector2.Distance(target.position, animator.transform.position);
+            if (zombieDistance < 4f)
+                animator.SetBool("isAttacking", true);
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

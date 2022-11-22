@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Start.unity
     guid: efbdd1a3435007e4c86c5b53b777f756
   - enabled: 1
-    path: Assets/Scenes/Metroidvania.unity
+    path: Assets/Scenes/Main.unity
     guid: 142bb73ef54ad7942a643de0819df7ec
   m_configObjects: {}

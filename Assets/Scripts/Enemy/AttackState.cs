@@ -14,8 +14,16 @@ public class AttackState : StateMachineBehaviour
     {    
         float distance = Vector2.Distance(target.position, animator.transform.position);
         target.GetComponent<PlayerHealth>().OnAttackZombie();       
-        if (distance >2)
+        if (distance > 2f)
             animator.SetBool("isAttacking", false);
+
+        if (animator.gameObject.name.Equals("BossZombie"))
+        {
+            float zombieDist = Vector2.Distance(target.position, animator.transform.position);
+            target.GetComponent<PlayerHealth>().OnAttackZombie();
+            if (zombieDist > 4)
+                animator.SetBool("isAttacking", false);
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

@@ -16,7 +16,7 @@ public class SelfDestroy : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-           GameObject.Instantiate(gameOverScreen);
+            GameObject.Find("MainCanvas").transform.GetChild(1).gameObject.SetActive(true);
             Destroy(other.gameObject);
         }
         

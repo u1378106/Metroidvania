@@ -6,6 +6,7 @@ public class Attack : BaseState
 {
     private PlayerControllerStateMachine _sm;
     private float _horizontalInput;
+    private float _verticalInput;
 
     public Attack(PlayerControllerStateMachine stateMachine) : base("Attack", stateMachine)
     {
@@ -16,11 +17,13 @@ public class Attack : BaseState
     {
         base.Enter();
         _horizontalInput = 0f;
+        _verticalInput = 0f;
     }
 
     public override void UpdateLogic()
     {
         base.UpdateLogic();
+
         _horizontalInput = Input.GetAxis("Horizontal");
         if (Mathf.Abs(_horizontalInput) > Mathf.Epsilon)
         {
@@ -28,7 +31,11 @@ public class Attack : BaseState
             stateMachine.ChangeState(_sm.movingState);       
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        _verticalInput = Input.GetAxis("Vertical");
+        if (Mathf.Abs(_verticalInput) > Mathf.Epsilon)
+            stateMachine.ChangeState(_sm.jumpingState);
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             AudioManager.instance.Play("Shoot");
             GameObject projectile = GameObject.Instantiate(_sm.abilitySet[0].ability, _sm.transform.position + new Vector3(2, 0, 0), Quaternion.Euler(0, 0, -90));
