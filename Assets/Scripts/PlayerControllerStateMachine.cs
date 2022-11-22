@@ -68,11 +68,16 @@ public class PlayerControllerStateMachine : StateMachine
 
     private void OnCollisionStay2D(Collision2D other)
     {
+        
         Debug.Log("current collision stay : " + other.gameObject.name);
         if (other.gameObject.tag == "Ground")
         {
             isGrounded = true;
             Debug.Log("isGrounded : " + isGrounded);
+        }
+        if(other.gameObject.tag == "Spike")
+        {
+            this.gameObject.GetComponent<PlayerHealth>().OnAttackSpike();
         }
       
     }
@@ -83,6 +88,10 @@ public class PlayerControllerStateMachine : StateMachine
         {
             isGrounded = false;
             Debug.Log("isGrounded : " + isGrounded);
+        }
+        if (other.gameObject.tag == "Spike")
+        {
+            this.gameObject.GetComponent<PlayerHealth>().isAttackingSpike = false;
         }
     }
 

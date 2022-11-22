@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class LevelHandler : MonoBehaviour
 {
-    public GameObject gameoverScreen, winScreen;
+    public GameObject gameoverScreen, winScreen, controlsScreen;
+
+    public List<GameObject> backgrounds;
 
 
 
@@ -18,7 +20,10 @@ public class LevelHandler : MonoBehaviour
             winScreen.SetActive(false);
         }
         else
+        {
             AudioManager.instance.Play("Bg");
+            controlsScreen.SetActive(false);
+        }
     }
 
     private void Update()
@@ -29,6 +34,16 @@ public class LevelHandler : MonoBehaviour
     public void StartLevel(int levelIndex)
     {
         SceneManager.LoadScene(levelIndex);
+    }
+
+    public void ShowControls()
+    {
+        controlsScreen.SetActive(true);
+    }
+
+    public void BackButton()
+    {
+        controlsScreen.SetActive(false);
     }
 
     public void QuitGame()

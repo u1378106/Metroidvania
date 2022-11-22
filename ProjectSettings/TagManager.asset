@@ -12,6 +12,8 @@ TagManager:
   - Enemy
   - Ground
   - GrapplePoint
+  - FxTemporaire
+  - Spike
   layers:
   - Default
   - TransparentFX

@@ -39,7 +39,7 @@ public class Zombie : MonoBehaviour
         {
             GameObject damageEffect = GameObject.Instantiate(_sm.abilitySet[0].damageEffect, transform.position, Quaternion.identity);
             Destroy(other.gameObject);
-            TakeDamage(10);
+            TakeDamage(20);
         }     
     }
 

@@ -13,7 +13,7 @@ public class AttackState : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {    
         float distance = Vector2.Distance(target.position, animator.transform.position);
-        target.GetComponent<PlayerHealth>().OnAttack();
+        target.GetComponent<PlayerHealth>().OnAttackZombie();       
         if (distance >2)
             animator.SetBool("isAttacking", false);
     }
@@ -21,7 +21,7 @@ public class AttackState : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+        target.GetComponent<PlayerHealth>().isAttackingZombie = false;
     }
 
     
