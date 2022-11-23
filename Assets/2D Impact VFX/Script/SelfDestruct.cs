@@ -7,7 +7,7 @@ namespace InguzPings
 
 
 public class SelfDestruct : MonoBehaviour {
-	public float selfdestruct_in = 5; // Setting this to 0 means no selfdestruct.
+	public float selfdestruct_in = 3; // Setting this to 0 means no selfdestruct.
 
 	void Start () {
 		if ( selfdestruct_in != 0){ 

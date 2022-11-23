@@ -38,8 +38,16 @@ public class Attack : BaseState
         if (Input.GetKeyDown(KeyCode.Space))
         {
             AudioManager.instance.Play("Shoot");
-            GameObject projectile = GameObject.Instantiate(_sm.abilitySet[0].ability, _sm.transform.position + new Vector3(2, 0, 0), Quaternion.Euler(0, 0, -90));
-            projectile.GetComponent<Rigidbody2D>().AddForce(_sm.transform.right * 1000);
+            if (_sm.isFacingRight)
+            {
+                GameObject projectile = GameObject.Instantiate(_sm.abilitySet[0].ability, _sm.transform.position + new Vector3(2, 0, 0), Quaternion.Euler(0, 0, -90));
+                projectile.GetComponent<Rigidbody2D>().AddForce(_sm.transform.right * 1000);
+            }
+            else
+            {
+                GameObject projectile = GameObject.Instantiate(_sm.abilitySet[0].ability, _sm.transform.position + new Vector3(-2, 0, 0), Quaternion.Euler(0, 0, 90));
+                projectile.GetComponent<Rigidbody2D>().AddForce(_sm.transform.right * -1000);
+            }
             _sm.playerAnim.SetBool("isAttacking", true);
         }
         else if (Input.GetKeyUp(KeyCode.Space))
